@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package safeEntry;
+
+import "google/protobuf/timestamp.proto";
+
+service safeEntry {
+    rpc CheckIn (CheckInRequest) returns (Result);
+    rpc CheckOut (CheckOutRequest) returns (Result);
+ 
+}
+
+message CheckInRequest {
+string name = 1;
+string location = 2;
+google.protobuf.Timestamp time = 3;
+	
+}
+
+message CheckOutRequest {
+string name = 1;
+string location = 2;
+google.protobuf.Timestamp time = 3;
+}
+
+message Result {
+string message = 1;
+}
+
